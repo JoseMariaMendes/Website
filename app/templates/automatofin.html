@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <form action="{{url_for('automatofin')}}" method="POST">
+        <p> Insira um numero em binario com um numero de 1's multiplo de tres e numero par de 0's</p>
+        <p><input type="text" name="comb" required></p>
+        <p><input type= 'submit' value= 'submit' required></p>
+    </form>
+{% endblock %}

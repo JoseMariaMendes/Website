@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+    
+    
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <title>Blog do Zé</title>
+        <link rel="icon" href="icon.png" type="image/gif" sizes="16x16">
+        <link rel="stylesheet" type="text/css" href='../static/css/layout.css'>  
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css?fbclid=IwAR0oTKlXa3cj4bKGRFogYVlpFHDdwfMMj6aynxki9nH5SILNTTxKVa-kHRw'>  
+        
+
+        <script>
+            function openSlideMenu(){
+                document.getElementById("menu").style.width = "250px"
+                document.getElementById("content").style.marginLeft = "250px"
+            }
+            function closeSlideMenu(){
+                document.getElementById("menu").style.width = "0px"
+                document.getElementById("content").style.marginLeft = "0px"
+            }
+        </script>
+
+    </head>
+
+    <body>
+        <div id="content">
+            
+            <div class="grid">
+
+                <div class="header">
+                <!--#region HEADER-->
+                    <span class="slide">
+                        <a href="#" onclick="openSlideMenu()">
+                            <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+
+                    <h1>
+                        Zay's Blog
+                    </h1>
+                <!--#endregion-->
+                </div> 
+
+                <!--#region NAV-->
+                <div id="menu" class="nav">
+                    <a href="#"class="close" onclick="closeSlideMenu()">
+                        <i class="fas fa-times"></i>
+                    </a>
+                    <a href="entrada">Entrada</a>
+                    <a href="regex">Regex</a>
+                    <a href="automatofin">Automato(finito)</a>
+                    <a href="automatopilha">Automato(em pilha)</a>
+                </div>
+                <!--#endregion-->
+
+                <div class="side">
+                <!--#region SIDE-->
+                    <p><img src="../static/css/img/fakead.jpg" alt="fakead1" style=" width:200px"></p>
+                    <p><img src="../static/css/img/fakead2.gif" alt="gif1" style=" width:200px"></p>
+                    <p><img src="../static/css/img/fakead3.gif" alt="gif2" style=" width:200px"></p>
+                <!--#endregion-->
+                </div>
+
+                <div class="main">
+                <!--#region MAIN-->
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div id="hide" class="alert {{ category }}" role="alert">
+                                    <strong> {{ message }} </strong>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    {% block content %} 
+                    {% endblock %}
+                <!--#endregion-->
+                </div>
+
+                <div class="footer">
+                <!--#region FOOTER-->
+                    <p>José Maria Mendes(patent pending)</p>
+                <!--#endregion-->
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
